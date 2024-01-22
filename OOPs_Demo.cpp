@@ -9,7 +9,11 @@ protected:
     string fuelType;
     double engineCapacity;
     double milage;
+<<<<<<< HEAD
     float capacity = 1;
+=======
+    float capacity=1;
+>>>>>>> 49220a4546f2717bbd3088d7ba657a539947f8c1
 
 public:
     Engine(const string &fuelType, double engineCapacity, double milage)
@@ -75,6 +79,7 @@ public:
         return year;
     }
 
+<<<<<<< HEAD
     void driveVehicle(int distaceTraveled)
     {
         cout << this->getVehicleType() << " named " << this->make << " model" << this->model << " is ";
@@ -91,6 +96,20 @@ public:
         }
         else
             cout << "Fuel capacity " << capacity * 100 << " remaining " << endl;
+=======
+    void driveVehicle(int distaceTraveled){
+        cout<<this->getVehicleType()<<" named "<<this->make<<" model"<<this->model<<" is ";
+        cout<<"moved "<< distaceTraveled << " Kilometers."<<endl;
+        int maxdistance=engineCapacity*milage;
+        int fuelbefore=capacity*maxdistance;
+        int fuelafter=fuelbefore-distaceTraveled;
+        // cout<<capacity<<" "<<maxdistance<<" "<<fuelbefore<<" "<<fuelafter<<endl;
+        capacity=(fuelafter*capacity)/fuelbefore;
+        if(capacity<0){
+            cout<<"No fuel is remaining."<<".....Car is stopped!!!!"<<endl;
+        }
+        else cout<<"Fuel capacity "<<capacity*100<< " remaining "<<endl;
+>>>>>>> 49220a4546f2717bbd3088d7ba657a539947f8c1
     }
 
     // Abstract method for getting vehicle type
@@ -251,6 +270,7 @@ public:
         cout << "Vehicle not found." << endl;
     }
 
+<<<<<<< HEAD
     void rideVehicle(string Make, string Model, int year)
     {
         vector<Vehicle *>::iterator it = vehicles.begin();
@@ -262,6 +282,18 @@ public:
                 int distanceTravelled;
                 cout << "Enter how much kilometer you wanted to drive: ";
                 cin >> distanceTravelled;
+=======
+    void rideVehicle(string Make, string Model, int year){
+        vector<Vehicle*>::iterator it=vehicles.begin();
+        Vehicle *wanted = *it;
+        for (it = vehicles.begin(); it != vehicles.end(); ++it)
+        {   
+            if (wanted->getvehicalmodel() == Model && wanted->getvehicalmake() == Make && wanted->getProductionYear() == year)
+            {
+                int distanceTravelled;
+                cout<<"Enter how much kilometer you wanted to drive: ";
+                cin>>distanceTravelled;
+>>>>>>> 49220a4546f2717bbd3088d7ba657a539947f8c1
                 wanted->driveVehicle(distanceTravelled);
                 return;
             }
@@ -296,7 +328,11 @@ int main()
         cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 49220a4546f2717bbd3088d7ba657a539947f8c1
         string make, model;
         int year;
         switch (choice)
@@ -428,8 +464,13 @@ int main()
             cin >> model;
             cout << "Enter year of the vehical to drive: ";
             cin >> year;
+<<<<<<< HEAD
             manager.rideVehicle(make, model, year);
 
+=======
+            manager.rideVehicle(make,model,year);
+            
+>>>>>>> 49220a4546f2717bbd3088d7ba657a539947f8c1
             break;
         case 5:
             cout << "Exiting...\n";
@@ -441,6 +482,79 @@ int main()
         }
     } while (choice != 5);
 
+<<<<<<< HEAD
     return 0;
 }
 
+=======
+
+
+    return 0;
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+// */
+
+/*
+int main()
+{
+    VehicleManager manager;
+
+    // Adding a car
+    Car *car = new Car("Toyota", "Camry", 2024, 4, 4, 5, "Gasoline", "Automatic", 100, 100, true, true,25);
+    manager.addVehicle(car);
+
+    // // Adding a bus
+    Bus *bus = new Bus("Mercedes", "Sprinter", 2023, 2, 6, 20, "Diesel", "Automatic", 3.0, 120, 30, true,15);
+    manager.addVehicle(bus);
+
+    // // Adding a bike
+    Bike *bike = new Bike("Honda", "CBR500R", 2024, 2, 2, "Gasoline","Manual", 0.471, 190, "Sport", true, true,50);
+    manager.addVehicle(bike);
+    // string type = bike->getVehicleType();
+    // cout << type << endl;
+    // bike->startVehical();
+
+    // Displaying all vehicles
+    // cout<<"---------------------------------------------display started"<<endl;
+    // cout<<"\n"<<endl;
+    // manager.displayAllVehicles();
+    // cout<<"\n"<<endl;
+    // cout<<"---------------------------------------------display completed"<<endl;
+
+    // manager.deleteVehicle("Toyota", "Camry", 2024);
+    car->driveVehicle(100);
+    cout<<"Driving................."<<endl;
+    manager.rideVehicle("Toyota", "Camry", 2024);
+
+    // cout<<"---------------------------------------------display started"<<endl;
+    // cout<<"\n"<<endl;
+    // manager.displayAllVehicles();
+    // cout<<"\n"<<endl;
+    // cout<<"---------------------------------------------display completed"<<endl;
+
+    return 0;
+}
+*/
+
+// abstrct class
+// polymorphisum
+// static , const keyword
+// static fuction , nonstatic function
+// try catch , types of files , how files work, mine type to covert in differnt format
+// compilation error, java, javascipt, python 
+// function ,loops 
+// inbuilt functions
+// regex keyword
+>>>>>>> 49220a4546f2717bbd3088d7ba657a539947f8c1
