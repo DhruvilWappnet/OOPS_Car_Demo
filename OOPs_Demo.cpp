@@ -9,7 +9,7 @@ protected:
     string fuelType;
     double engineCapacity;
     double milage;
-    float capacity=1;
+    float capacity = 1;
 
 public:
     Engine(const string &fuelType, double engineCapacity, double milage)
@@ -75,18 +75,22 @@ public:
         return year;
     }
 
-    void driveVehicle(int distaceTraveled){
-        cout<<this->getVehicleType()<<" named "<<this->make<<" model"<<this->model<<" is ";
-        cout<<"moved "<< distaceTraveled << " Kilometers."<<endl;
-        int maxdistance=engineCapacity*milage;
-        int fuelbefore=capacity*maxdistance;
-        int fuelafter=fuelbefore-distaceTraveled;
+    void driveVehicle(int distaceTraveled)
+    {
+        cout << this->getVehicleType() << " named " << this->make << " model" << this->model << " is ";
+        cout << "moved " << distaceTraveled << " Kilometers." << endl;
+        int maxdistance = engineCapacity * milage;
+        int fuelbefore = capacity * maxdistance;
+        int fuelafter = fuelbefore - distaceTraveled;
         // cout<<capacity<<" "<<maxdistance<<" "<<fuelbefore<<" "<<fuelafter<<endl;
-        capacity=(fuelafter*capacity)/fuelbefore;
-        if(capacity<0){
-            cout<<"No fuel is remaining."<<".....Car is stopped!!!!"<<endl;
+        capacity = (fuelafter * capacity) / fuelbefore;
+        if (capacity < 0)
+        {
+            cout << "No fuel is remaining."
+                 << ".....Car is stopped!!!!" << endl;
         }
-        else cout<<"Fuel capacity "<<capacity*100<< " remaining "<<endl;
+        else
+            cout << "Fuel capacity " << capacity * 100 << " remaining " << endl;
     }
 
     // Abstract method for getting vehicle type
@@ -247,16 +251,17 @@ public:
         cout << "Vehicle not found." << endl;
     }
 
-    void rideVehicle(string Make, string Model, int year){
-        vector<Vehicle*>::iterator it=vehicles.begin();
+    void rideVehicle(string Make, string Model, int year)
+    {
+        vector<Vehicle *>::iterator it = vehicles.begin();
         Vehicle *wanted = *it;
         for (it = vehicles.begin(); it != vehicles.end(); ++it)
-        {   
+        {
             if (wanted->getvehicalmodel() == Model && wanted->getvehicalmake() == Make && wanted->getProductionYear() == year)
             {
                 int distanceTravelled;
-                cout<<"Enter how much kilometer you wanted to drive: ";
-                cin>>distanceTravelled;
+                cout << "Enter how much kilometer you wanted to drive: ";
+                cin >> distanceTravelled;
                 wanted->driveVehicle(distanceTravelled);
                 return;
             }
@@ -291,7 +296,7 @@ int main()
         cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
-        
+
         string make, model;
         int year;
         switch (choice)
@@ -423,8 +428,8 @@ int main()
             cin >> model;
             cout << "Enter year of the vehical to drive: ";
             cin >> year;
-            manager.rideVehicle(make,model,year);
-            
+            manager.rideVehicle(make, model, year);
+
             break;
         case 5:
             cout << "Exiting...\n";
@@ -435,8 +440,6 @@ int main()
             cout << "Invalid choice. Please enter a number between 1 and 4.\n";
         }
     } while (choice != 5);
-
-
 
     return 0;
 }
